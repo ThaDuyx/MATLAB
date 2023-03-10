@@ -3,6 +3,7 @@
 
 ## Course Description
 - SPFIS: Signal Processing for Interactive Systems
+- SMC02: Semester Project 2
 
 ## Toolboxes
 - [Simulink](https://se.mathworks.com/help/simulink/index.html?searchHighlight=simulink&s_tid=srchtitle_simulink_1)
