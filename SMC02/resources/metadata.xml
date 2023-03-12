@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addOn>
+  <identifier>e778ed7f-d008-419d-8240-70336504db56</identifier>
+  <displayType>Collection</displayType>
+  <translatedDisplayType>
+    <en_US>Collection</en_US>
+    <es_ES>Collection</es_ES>
+    <es_MX>Collection</es_MX>
+    <ja_JP>コレクション</ja_JP>
+    <ko_KR>컬렉션</ko_KR>
+    <zh_CN>集合</zh_CN>
+  </translatedDisplayType>
+  <name>Diffusion Music</name>
+  <author>Valerio Biscione</author>
+  <version>1.1.0.0</version>
+  <downloadUrl>https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/50791/versions/2/download/zip?src=addons_ml_desktop_install&amp;profile_id=27264865&amp;license=329468&amp;release_family=R2022b</downloadUrl>
+  <licenseUrl>https://addons.mathworks.com/registry/v1/e778ed7f-d008-419d-8240-70336504db56/1.1.0.0/-/license</licenseUrl>
+  <previewImageUrl>https://www.mathworks.com/responsive_image/160/120/0/0/0/cache/matlabcentral/mlc-downloads/downloads/submissions/50791/versions/2/screenshot.jpg</previewImageUrl>
+  <releaseNotesUrl>https://www.mathworks.com/add-ons/e778ed7f-d008-419d-8240-70336504db56/a1579a86-829d-60c4-edd1-c9ac3248db2c/releaseNotes</releaseNotesUrl>
+  <installationFolder>Collections</installationFolder>
+</addOn>
