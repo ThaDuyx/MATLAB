@@ -89,9 +89,13 @@ for i=1:Ntracks
   rawbytes(end+1:end+length(tmp)) = tmp;
 end
 
+% Choose specific folder
+folder = '/Users/duyx/Code/MATLAB/SMC02/DiffusionMusic';
+fullFileName = fullfile(folder, filename);
+%[fileID, message] = fopen(fullFileName, 'w')
 
 % write to file
-fid = fopen(filename,'w');
+fid = fopen(fullFileName,'w');
 %fwrite(fid,rawbytes,'char');
 fwrite(fid,rawbytes,'uint8');
 fclose(fid);

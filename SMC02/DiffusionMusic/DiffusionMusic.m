@@ -32,8 +32,6 @@ for i=1:voices
     MATRIX=[MATRIX; M];
 end
 
-
-
 midi_new = matrix2midi(MATRIX);
 writemidi(midi_new, 'testout.mid');
 
