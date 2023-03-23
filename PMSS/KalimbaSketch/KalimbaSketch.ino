@@ -1,22 +1,31 @@
-#include <Audio.h>
-#include <Wire.h>
-AudioInputI2S in;
-AudioOutputI2S out;
-AudioControlSGTL5000 audioShield;
-AudioConnection patchCord0(in,0,out,0);
-AudioConnection patchCord1(in,0,out,1);
+#include <Bounce.h>  // Bounce library makes button change detection easy
 
+const int knockSensor = A0; // the piezo is connected to analog pin 0
+const int threshold = 500;  // threshold value to decide when the detected sound is a knock or not
+const int channel = 1;
+
+// these variables will change:
+int sensorReading = 0;      // variable to store the value read from the sensor pin
+bool isPlaying = false;
 
 void setup() {
-  Serial.begin(9600);
-  AudioMemory(6);
-  audioShield.enable();
-  audioShield.inputSelect(AUDIO_INPUT_MIC);
-  audioShield.micGain(10); // in dB
-  audioShield.volume(0.5);
+  Serial.begin(9600);       // use the serial port
 }
 
 void loop() {
-  Serial.print("running");
-  delay(1000);  // delay to avoid overloading the serial port buffer
+  // read the sensor and store it in the variable sensorReading:
+  sensorReading = analogRead(knockSensor);
+
+  if (sensorReading >= threshold) {
+    usbMIDI.sendNoteOn(60, 99, channel);  // 60 = C4
+    Serial.println("Knock!");
+    isPlaying = true;
+    delay(500);
+  }
+
+  if (isPlaying) {
+    usbMIDI.sendNoteOff(60, 99, channel);  // 60 = C4
+    isPlaying = false;
+  }
+  
 }
