@@ -3,6 +3,7 @@
 
 ## Course Description
 - SPFIS: Signal Processing for Interactive Systems
+- PMSS: Physical Models for Sound Synthesis
 - SMC02: Semester Project 2
 
 ## Toolboxes
