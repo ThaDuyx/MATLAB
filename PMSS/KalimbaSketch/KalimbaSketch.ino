@@ -8,7 +8,7 @@ const int threshold = 500;                  // threshold value to decide when th
 int sensorReading = 0;                      // variable to store the value read from the sensor pin
 
 /// --- BUTTON
-const int buttonPin = 0;                    // the number of the pushbutton pin
+const int buttonPin = 2;                    // the number of the pushbutton pin
 int buttonState = 0;                        // variable for reading the pushbutton status
 
 /// --- STATE
@@ -41,10 +41,8 @@ void loop() {
   
   // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
   if (buttonState == HIGH) {
-    Serial.print("ON");
+    usbMIDI.sendNoteOn(60, 99, channel);    // MIDI 60 = C4 Note on
   } else {
-    Serial.print("OFF");
+    usbMIDI.sendNoteOff(60, 99, channel);   // MIDI 60 = C4 Note off
   }
-
-  delay(500);
 }
