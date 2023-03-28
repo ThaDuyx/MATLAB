@@ -20,3 +20,5 @@
 - [Statistics and Machine Learning Toolbox](https://se.mathworks.com/help/stats/index.html?searchHighlight=Statistics%20and%20machine%20learning%20toolbox&s_tid=srchtitle_Statistics%20and%20machine%20learning%20toolbox_1)
 
 - [MATLAB Support Package for Apple iOS Sensors](https://se.mathworks.com/matlabcentral/fileexchange/51235-matlab-support-package-for-apple-ios-sensors?s_tid=srchtitle_MATLAB%20support%20package%20for%20apple%20ios%20sensors_1)
+
+- [Image Proccessing Toolbox](https://se.mathworks.com/products/image.html)
