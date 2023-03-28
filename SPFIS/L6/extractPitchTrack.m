@@ -1,7 +1,7 @@
 function [pitchTrack, timeVector] = extractPitchTrack(filename, segmentTime, overlap, pitchBounds, channelNo, reSamplingFreq)
     % load the data, optionally resample it, and optionally select a
     % channel
-    [rawData, rawSamplingFreq] = audioread(filename);
+    [rawData, rawSamplingFreq] = audioread('09viola.flac');
     
     if nargin < 5 || isempty(channelNo)
         channelNo = 1;
@@ -13,8 +13,7 @@ function [pitchTrack, timeVector] = extractPitchTrack(filename, segmentTime, ove
         samplingFreq = rawSamplingFreq;
     else
         % resample the signal
-        data = resample(rawData(:,channelNo), reSamplingFreq, ...
-            rawSamplingFreq);
+        data = resample(rawData(:,channelNo), reSamplingFreq, rawSamplingFreq);
         samplingFreq = reSamplingFreq;
     end
     
@@ -25,12 +24,11 @@ function [pitchTrack, timeVector] = extractPitchTrack(filename, segmentTime, ove
     
     % setup the segmenting
     nData = length(data);
-    segmentLength = round(segmentTime*samplingFreq); % samples
+    segmentLength = round(segmentTime * samplingFreq); % samples
     segmentTime = segmentLength/samplingFreq; % also round segmentTime
     nShift = round((1-overlap/100)*segmentLength); % samples
     shiftTime = nShift/samplingFreq; % also round segmentTime
     nSegments = ceil((nData-segmentLength+1)/nShift);
-    
     pitchTrack = nan(nSegments,1);
     
     % do the analysis
@@ -44,6 +42,7 @@ function [pitchTrack, timeVector] = extractPitchTrack(filename, segmentTime, ove
         idx = idx + nShift;
     end
     timeVector = segmentTime/2+(1:nSegments)*shiftTime-shiftTime/2;
+    
     % convert from digital to analogue frequency
     pitchTrack = pitchTrack*samplingFreq;
 end
