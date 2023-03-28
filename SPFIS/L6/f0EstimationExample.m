@@ -13,9 +13,7 @@ maxF0 = 1000;
 pitchBounds = [minF0, maxF0];
 
 %% analyse the signal segment-by-segment
-[pitchTrack, timeVector] = ...
-        extractPitchTrack(filename, segmentTime, overlap,...
-        pitchBounds, channelNo, reSamplingFreq);
+[pitchTrack, timeVector] = extractPitchTrack(filename, segmentTime, overlap, pitchBounds, channelNo, reSamplingFreq);
 
 %% setup and compute spectrogram
 [audio, samplingFreq] = audioread(filename);

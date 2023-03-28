@@ -1,12 +1,12 @@
-function [pitchTrack, timeVector] = ...
-        extractPitchTrack(filename, segmentTime, overlap,...
-        pitchBounds, channelNo, reSamplingFreq)
+function [pitchTrack, timeVector] = extractPitchTrack(filename, segmentTime, overlap, pitchBounds, channelNo, reSamplingFreq)
     % load the data, optionally resample it, and optionally select a
     % channel
     [rawData, rawSamplingFreq] = audioread(filename);
+    
     if nargin < 5 || isempty(channelNo)
         channelNo = 1;
     end
+    
     if nargin < 6  || isempty(reSamplingFreq)
         % do not resample - just select the desired channel
         data = rawData(:,channelNo);
@@ -38,8 +38,8 @@ function [pitchTrack, timeVector] = ...
     for iSegment = 1:nSegments
         disp(['Processing segment ', num2str(iSegment), ' of ', num2str(nSegments)]);
         segmentData = data(idx);
-        pitchTrack(iSegment) = combFilterPitchEstimator(segmentData, ...
-            pitchBounds/samplingFreq);
+        pitchTrack(iSegment) = combFilterPitchEstimator(segmentData, pitchBounds/samplingFreq);
+        
         % prepare for the next segment
         idx = idx + nShift;
     end
