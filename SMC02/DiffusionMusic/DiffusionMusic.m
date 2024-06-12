@@ -16,6 +16,7 @@ for i=1:voices
         'v', v,...
         'c',2,...
         'tau',1);
+    % Filtering out negative values
      timeSeries(timeSeries<=0)=0;
   
     display(['NumStep: ' num2str(numSteps) ' time:' num2str(time)]);
